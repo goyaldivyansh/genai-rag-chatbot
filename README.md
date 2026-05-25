@@ -1,125 +1,322 @@
-# genai-rag-chatbot
+# README.md for Your GitHub Project
 
-A great `README.md` file acts as the face of your repository. It explains what your project does, how it works underneath the hood, and how someone else can set it up on their own machine.
+````md
+# 📚 RAG Chatbot with Memory using Gemini + LangChain + ChromaDB
 
-Here is a professionally formatted, production-ready `README.md` file tailored exactly to the code you just provided.
+A powerful Retrieval-Augmented Generation (RAG) chatbot built using Streamlit, LangChain, Google Gemini 2.5 Flash, HuggingFace embeddings, and ChromaDB.
 
----
-
-### 📝 Production-Ready `README.md`
-
-Copy and paste everything inside the block below into a file named **`README.md`** in your project root directory.
-
-```markdown
-# 🤖 RAG Chatbot with Memory & Multi-Format Support
-
-An AI-powered Retrieval-Augmented Generation (RAG) chatbot built with **Streamlit**, **LangChain**, and **Google Gemini 2.5 Flash**. This application allows users to upload local documents (`.pdf`), converts them into vector embeddings using a local Hugging Face transformer model, stores them in a **Chroma DB** vector store, and provides an interactive chat interface with full contextual memory.
+This application allows users to upload PDF documents and ask contextual questions about the content. The chatbot remembers conversation history and provides intelligent responses grounded in the uploaded document.
 
 ---
 
-## 🚀 Key Features
+# 🚀 Features
 
-* **Dynamic Data Ingestion:** Upload and parse document structures using optimized text splitters.
-* **Persistent Chat Memory:** Tracks user-assistant conversation states across Streamlit's structural execution loops.
-* **Fully Local Embeddings:** High-performance phrase tracking using the `sentence-transformers/all-mpnet-base-v2` model running locally.
-* **Semantic Search:** Harnesses Chroma DB vector indices to grab the top context blocks matching user input.
-* **State-of-the-Art Core LLM:** Powers logical responses using Google's ultra-fast `gemini-2.5-flash` model.
-
----
-
-## 🛠️ Code Architecture & Core Components Explained
-
-The application logic is broken down into structured execution steps:
-
-### 1. Initialization and State Control
-Streamlit natively reruns the entire script file from top to bottom on every user submission. To prevent data erasure, `st.session_state` containers are configured at boot:
-* `vector_db`: Retains the active vectorized index of your file across query interactions.
-* `document_uploaded`: Tracks whether the system should display the uploader screen or the chat board.
-* `chat_history`: Stores a dynamic array of previous message dictionaries (`role` and `content`).
-
-### 2. The Ingestion Pipeline (`document_process`)
-When a file passes through the file uploader:
-1. **Document Extraction:** `PyPDFLoader` targets the saved storage path and reads the document text.
-2. **Chunking Engine:** `RecursiveCharacterTextSplitter` breaks huge walls of text into micro-segments (`chunk_size=400`, `chunk_overlap=50`) to keep contextual references clean without overflowing the LLM window.
-3. **Vectorizing Engine:** `HuggingFaceEmbeddings` maps textual information into numerical vector space using mathematical vectors.
-4. **Vector Storage:** `Chroma.from_documents` compiles the vectors into a fast database for immediate retrieval.
-
-### 3. Contextual Retrieval Engine
-When you pass a message to `st.chat_input`, the script grabs the input text strings and fires an internal sequence:
-1. **Vector Scan:** `vector_db.similarity_search` calculates mathematical distance to pull the top two (`k=2`) matching chunks.
-2. **Context Compilation:** The page texts are bound together into a single global `context` variable block.
-3. **History Extraction:** The code extracts the `chat_history` payload array into a raw transcript layout (`history_str`).
-4. **Prompt Conditioning:** The variables are packed into an engineering-optimized prompt template:
-```text
-   Context from Document: ...
-   Chat History: ...
-   Current Question: ...
-
-```
-
-5. **Inference:** The bundled template maps to `llm.invoke(prompt)`, allowing Gemini to speak accurately based on your file history.
+✅ Upload PDF documents  
+✅ Automatic document chunking  
+✅ Semantic search using vector embeddings  
+✅ ChromaDB vector database integration  
+✅ Conversational memory support  
+✅ Gemini 2.5 Flash integration  
+✅ Streamlit chat interface  
+✅ Local embeddings using HuggingFace  
+✅ Context-aware responses from documents  
 
 ---
 
-## 📋 Installation & Local Setup
+# 🧠 Tech Stack
 
-Follow these steps to run the application on your computer:
+| Technology | Purpose |
+|---|---|
+| Streamlit | Frontend UI |
+| LangChain | LLM orchestration |
+| Gemini 2.5 Flash | Large Language Model |
+| HuggingFace Embeddings | Text embeddings |
+| ChromaDB | Vector database |
+| RecursiveCharacterTextSplitter | Document chunking |
+| PyPDFLoader | PDF processing |
 
-### 1. Clone the Project Workspace
+---
+
+# 📂 Project Structure
 
 ```bash
-git clone [https://github.com/goyaldivyansh/genai-rag-chatbot.git](https://github.com/goyaldivyansh/genai-rag-chatbot.git)
-cd genai-rag-chatbot
-
+project/
+│
+├── app.py
+├── .env
+├── requirements.txt
+└── uploaded_document.pdf
 ```
 
-### 2. Configure a Virtual Environment
+---
+
+# ⚙️ Installation
+
+## 1️⃣ Clone Repository
 
 ```bash
-# Create environment
+git clone https://github.com/your-username/rag-chatbot.git
+
+cd rag-chatbot
+```
+
+---
+
+## 2️⃣ Create Virtual Environment
+
+### Windows
+
+```bash
 python -m venv venv
 
-# Activate environment (Windows)
 venv\Scripts\activate
-
-# Activate environment (Mac/Linux)
-source venv/bin/activate
-
 ```
 
-### 3. Install Dependencies
+### Mac/Linux
 
 ```bash
-pip install streamlit langchain langchain-community langchain-huggingface langchain-chroma langchain-google-genai python-dotenv pydantic pypdf
+python3 -m venv venv
 
+source venv/bin/activate
 ```
 
-### 4. Configure Your Environment Keys
+---
 
-Create a file named `.env` in the root folder of your project:
+## 3️⃣ Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+# 🔑 Environment Variables
+
+Create a `.env` file in the root directory.
 
 ```env
-GOOGLE_API_KEY=your_actual_gemini_api_key_here
-
+GOOGLE_API_KEY=your_google_api_key
 ```
 
-### 5. Launch the Application
+Get your API key from:
+
+https://aistudio.google.com/app/apikey
+
+---
+
+# ▶️ Run the Application
 
 ```bash
 streamlit run app.py
-
 ```
 
 ---
 
-## 🔒 Security Note
+# 📖 How It Works
 
-This repository contains a `.gitignore` profile mapping sensitive entries. **Never** remove `.env` from your tracking ignores, ensuring your Google API credentials remain locked away safely from public scraping bots.
+## Step 1 — Upload PDF
 
+The user uploads a PDF document through the Streamlit UI.
+
+## Step 2 — Document Processing
+
+The PDF is loaded using:
+
+```python
+PyPDFLoader
 ```
 
+---
+
+## Step 3 — Text Chunking
+
+The document is split into smaller chunks using:
+
+```python
+RecursiveCharacterTextSplitter
 ```
 
+Configuration:
+
+```python
+chunk_size=400
+chunk_overlap=50
 ```
 
+---
+
+## Step 4 — Generate Embeddings
+
+Embeddings are generated using HuggingFace model:
+
+```python
+sentence-transformers/all-mpnet-base-v2
 ```
+
+---
+
+## Step 5 — Store in ChromaDB
+
+Document embeddings are stored inside Chroma Vector Database for semantic retrieval.
+
+---
+
+## Step 6 — Similarity Search
+
+When the user asks a question:
+
+- Relevant chunks are retrieved
+- Context is generated
+- Chat history is included
+- Prompt is sent to Gemini 2.5 Flash
+
+---
+
+## Step 7 — AI Response
+
+The chatbot generates contextual answers grounded in the uploaded document.
+
+---
+
+# 💬 Example Questions
+
+- Summarize the document
+- What are the key points?
+- Explain chapter 2
+- What is the conclusion?
+- Who is the author?
+- Give me important highlights
+
+---
+
+# 🧠 Memory Support
+
+The chatbot maintains chat history using:
+
+```python
+st.session_state.chat_history
+```
+
+This allows follow-up questions and contextual conversations.
+
+---
+
+# 📦 requirements.txt
+
+```txt
+streamlit
+python-dotenv
+langchain
+langchain-community
+langchain-text-splitters
+langchain-huggingface
+langchain-google-genai
+chromadb
+pypdf
+sentence-transformers
+docx2txt
+```
+
+---
+
+# 🖼️ Application Preview
+
+## Upload Document
+
+- Upload PDF file
+- Processing starts automatically
+- Embeddings generated
+
+## Chat Interface
+
+- Ask questions naturally
+- Context-aware responses
+- Chat history preserved
+
+---
+
+# 🔥 Future Improvements
+
+- Multi-file upload support
+- DOCX and TXT support
+- Source citations
+- Streaming responses
+- Chat export
+- Authentication
+- Cloud deployment
+- Pinecone integration
+- ConversationalRetrievalChain
+- Docker support
+
+---
+
+# 🌐 Deployment Options
+
+You can deploy this project on:
+
+- Hugging Face Spaces
+- Streamlit Cloud
+- Render
+- Railway
+- AWS
+- Azure
+
+---
+
+# 📚 Concepts Used
+
+This project demonstrates:
+
+- Retrieval-Augmented Generation (RAG)
+- Semantic Search
+- Vector Databases
+- Embeddings
+- Prompt Engineering
+- Conversational AI
+- LLM Integration
+- Context Injection
+- Memory Handling
+
+---
+
+# 🎯 Learning Outcomes
+
+By building this project, you will learn:
+
+✅ LangChain fundamentals  
+✅ RAG pipeline architecture  
+✅ ChromaDB vector storage  
+✅ LLM application development  
+✅ Streamlit frontend development  
+✅ Embedding generation  
+✅ Prompt engineering  
+✅ Context-aware chatbot development  
+
+---
+
+# 🤝 Contributing
+
+Pull requests are welcome.
+
+For major changes, please open an issue first to discuss what you would like to change.
+
+---
+
+# 📜 License
+
+This project is licensed under the MIT License.
+
+---
+
+# 👨‍💻 Author
+
+Divyansh Goyal
+
+LinkedIn: [https://linkedin.com/in/your-linkedin](https://www.linkedin.com/in/divyanshgoyal25/)
+
+---
+
+# ⭐ If You Like This Project
+
+Give this repository a ⭐ on GitHub to support the project.
+````
