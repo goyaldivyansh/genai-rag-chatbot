@@ -26,7 +26,7 @@ This application allows users to upload PDF documents and ask contextual questio
 # 🧠 Tech Stack
 
 | Technology | Purpose |
-|---|---|
+|------------|---------|
 | Streamlit | Frontend UI |
 | LangChain | LLM orchestration |
 | Gemini 2.5 Flash | Large Language Model |
@@ -53,15 +53,17 @@ project/
 
 ---
 
-# Recommended Architecture
+<hr>
 
-![Application Screenshot](images/1.jpg)
-![Application Screenshot](images/2.jpg)
-![Application Screenshot](images/3.jpg)
-![Application Screenshot](images/4.jpg)
-![Application Screenshot](images/5.jpg)
-![Application Screenshot](images/6.jpg)
+<h1>Recommended Architecture</h1>
 
+<img src="images/1.jpg" alt="Architecture 1" width="100%">
+<img src="images/2.jpg" alt="Architecture 2" width="100%">
+<img src="images/3.jpg" alt="Architecture 3" width="100%">
+<img src="images/4.jpg" alt="Architecture 4" width="100%">
+<img src="images/5.jpg" alt="Architecture 5" width="100%">
+
+<hr>
 ---
 
 
