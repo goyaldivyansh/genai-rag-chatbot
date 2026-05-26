@@ -50,6 +50,19 @@ project/
 
 ---
 
+---
+# Recommended Architecture
+![Application Screenshot](images/1.jpg)
+![Application Screenshot](images/2.jpg)
+![Application Screenshot](images/3.jpg)
+![Application Screenshot](images/4.jpg)
+![Application Screenshot](images/5.jpg)
+![Application Screenshot](images/6.jpg)
+---
+
+
+
+
 # ⚙️ Installation
 
 ## 1️⃣ Clone Repository
