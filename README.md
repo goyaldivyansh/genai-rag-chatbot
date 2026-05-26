@@ -1,6 +1,5 @@
-# README.md for Your GitHub Project
 
-````md
+```md
 # 📚 RAG Chatbot with Memory using Gemini + LangChain + ChromaDB
 
 A powerful Retrieval-Augmented Generation (RAG) chatbot built using Streamlit, LangChain, Google Gemini 2.5 Flash, HuggingFace embeddings, and ChromaDB.
@@ -9,21 +8,21 @@ This application allows users to upload PDF documents and ask contextual questio
 
 ---
 
-# 🚀 Features
+## 🚀 Features
 
-✅ Upload PDF documents  
-✅ Automatic document chunking  
-✅ Semantic search using vector embeddings  
-✅ ChromaDB vector database integration  
-✅ Conversational memory support  
-✅ Gemini 2.5 Flash integration  
-✅ Streamlit chat interface  
-✅ Local embeddings using HuggingFace  
-✅ Context-aware responses from documents  
+- Upload PDF documents
+- Automatic document chunking
+- Semantic search using vector embeddings
+- ChromaDB vector database integration
+- Conversational memory support
+- Gemini 2.5 Flash integration
+- Streamlit chat interface
+- Local embeddings using HuggingFace
+- Context-aware responses from documents
 
 ---
 
-# 🧠 Tech Stack
+## 🧠 Tech Stack
 
 | Technology | Purpose |
 |------------|---------|
@@ -37,7 +36,7 @@ This application allows users to upload PDF documents and ask contextual questio
 
 ---
 
-# 📂 Project Structure
+## 📂 Project Structure
 
 ```bash
 project/
@@ -45,17 +44,32 @@ project/
 ├── app.py
 ├── .env
 ├── requirements.txt
-└── uploaded_document.pdf
+├── README.md
+└── images/
+
 ```
 
 ---
 
+## 🖼️ Architecture Diagram
 
-![Architecture Diagram](https://github.com/goyaldivyansh/genai-rag-chatbot/raw/main/images/1.jpg)
+![Architecture Diagram](images/1.jpg)
 
-# ⚙️ Installation
+![Architecture Diagram](images/2.jpg)
 
-## 1️⃣ Clone Repository
+![Architecture Diagram](images/3.jpg)
+
+![Architecture Diagram](images/4.jpg)
+
+![Architecture Diagram](images/5.jpg)
+
+![Architecture Diagram](images/6.jpg)
+
+---
+
+## ⚙️ Installation
+
+### 1️⃣ Clone Repository
 
 ```bash
 git clone https://github.com/your-username/rag-chatbot.git
@@ -65,9 +79,9 @@ cd rag-chatbot
 
 ---
 
-## 2️⃣ Create Virtual Environment
+### 2️⃣ Create Virtual Environment
 
-### Windows
+#### Windows
 
 ```bash
 python -m venv venv
@@ -75,7 +89,7 @@ python -m venv venv
 venv\Scripts\activate
 ```
 
-### Mac/Linux
+#### Mac/Linux
 
 ```bash
 python3 -m venv venv
@@ -85,7 +99,7 @@ source venv/bin/activate
 
 ---
 
-## 3️⃣ Install Dependencies
+### 3️⃣ Install Dependencies
 
 ```bash
 pip install -r requirements.txt
@@ -93,7 +107,7 @@ pip install -r requirements.txt
 
 ---
 
-# 🔑 Environment Variables
+## 🔑 Environment Variables
 
 Create a `.env` file in the root directory.
 
@@ -107,7 +121,7 @@ https://aistudio.google.com/app/apikey
 
 ---
 
-# ▶️ Run the Application
+## ▶️ Run the Application
 
 ```bash
 streamlit run app.py
@@ -115,13 +129,13 @@ streamlit run app.py
 
 ---
 
-# 📖 How It Works
+## 📖 How It Works
 
-## Step 1 — Upload PDF
+### Step 1 — Upload PDF
 
 The user uploads a PDF document through the Streamlit UI.
 
-## Step 2 — Document Processing
+### Step 2 — Document Processing
 
 The PDF is loaded using:
 
@@ -129,9 +143,7 @@ The PDF is loaded using:
 PyPDFLoader
 ```
 
----
-
-## Step 3 — Text Chunking
+### Step 3 — Text Chunking
 
 The document is split into smaller chunks using:
 
@@ -142,13 +154,11 @@ RecursiveCharacterTextSplitter
 Configuration:
 
 ```python
-chunk_size=400
-chunk_overlap=50
+chunk_size = 400
+chunk_overlap = 50
 ```
 
----
-
-## Step 4 — Generate Embeddings
+### Step 4 — Generate Embeddings
 
 Embeddings are generated using HuggingFace model:
 
@@ -156,15 +166,11 @@ Embeddings are generated using HuggingFace model:
 sentence-transformers/all-mpnet-base-v2
 ```
 
----
-
-## Step 5 — Store in ChromaDB
+### Step 5 — Store in ChromaDB
 
 Document embeddings are stored inside Chroma Vector Database for semantic retrieval.
 
----
-
-## Step 6 — Similarity Search
+### Step 6 — Similarity Search
 
 When the user asks a question:
 
@@ -173,15 +179,13 @@ When the user asks a question:
 - Chat history is included
 - Prompt is sent to Gemini 2.5 Flash
 
----
-
-## Step 7 — AI Response
+### Step 7 — AI Response
 
 The chatbot generates contextual answers grounded in the uploaded document.
 
 ---
 
-# 💬 Example Questions
+## 💬 Example Questions
 
 - Summarize the document
 - What are the key points?
@@ -192,7 +196,7 @@ The chatbot generates contextual answers grounded in the uploaded document.
 
 ---
 
-# 🧠 Memory Support
+## 🧠 Memory Support
 
 The chatbot maintains chat history using:
 
@@ -204,7 +208,7 @@ This allows follow-up questions and contextual conversations.
 
 ---
 
-# 📦 requirements.txt
+## 📦 requirements.txt
 
 ```txt
 streamlit
@@ -222,23 +226,7 @@ docx2txt
 
 ---
 
-# 🖼️ Application Preview
-
-## Upload Document
-
-- Upload PDF file
-- Processing starts automatically
-- Embeddings generated
-
-## Chat Interface
-
-- Ask questions naturally
-- Context-aware responses
-- Chat history preserved
-
----
-
-# 🔥 Future Improvements
+## 🔥 Future Improvements
 
 - Multi-file upload support
 - DOCX and TXT support
@@ -253,7 +241,7 @@ docx2txt
 
 ---
 
-# 🌐 Deployment Options
+## 🌐 Deployment Options
 
 You can deploy this project on:
 
@@ -266,7 +254,7 @@ You can deploy this project on:
 
 ---
 
-# 📚 Concepts Used
+## 📚 Concepts Used
 
 This project demonstrates:
 
@@ -282,22 +270,22 @@ This project demonstrates:
 
 ---
 
-# 🎯 Learning Outcomes
+## 🎯 Learning Outcomes
 
 By building this project, you will learn:
 
-✅ LangChain fundamentals  
-✅ RAG pipeline architecture  
-✅ ChromaDB vector storage  
-✅ LLM application development  
-✅ Streamlit frontend development  
-✅ Embedding generation  
-✅ Prompt engineering  
-✅ Context-aware chatbot development  
+- LangChain fundamentals
+- RAG pipeline architecture
+- ChromaDB vector storage
+- LLM application development
+- Streamlit frontend development
+- Embedding generation
+- Prompt engineering
+- Context-aware chatbot development
 
 ---
 
-# 🤝 Contributing
+## 🤝 Contributing
 
 Pull requests are welcome.
 
@@ -305,21 +293,21 @@ For major changes, please open an issue first to discuss what you would like to 
 
 ---
 
-# 📜 License
+## 📜 License
 
 This project is licensed under the MIT License.
 
 ---
 
-# 👨‍💻 Author
+## 👨‍💻 Author
 
 Divyansh Goyal
 
-LinkedIn: [https://linkedin.com/in/your-linkedin](https://www.linkedin.com/in/divyanshgoyal25/)
+LinkedIn: https://www.linkedin.com/in/divyanshgoyal25/
 
 ---
 
-# ⭐ If You Like This Project
+## ⭐ Support
 
-Give this repository a ⭐ on GitHub to support the project.
-````
+If you like this project, give it a ⭐ on GitHub.
+```
