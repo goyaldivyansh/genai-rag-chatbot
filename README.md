@@ -51,19 +51,7 @@ project/
 ---
 
 
----
-
-<hr>
-
-<h1>Recommended Architecture</h1>
-
-<img width="1200" height="720" alt="image" src="https://github.com/user-attachments/assets/5551de37-517b-4abd-ae38-0cc8034a7f46" />
-
-<img src="./images/1.jpg" width="100%">
-
-<hr>
----
-
+![Architecture Diagram](https://github.com/goyaldivyansh/genai-rag-chatbot/raw/main/images/1.jpg)
 
 # ⚙️ Installation
 
