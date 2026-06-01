@@ -65,6 +65,29 @@ project/
 
 ![Architecture Diagram](images/6.jpg)
 
+
+## 🚀 End-to-End Workflow -> 🖼️ Application Screenshots
+
+### Step 1: Upload PDF
+
+![Step 1](images/7.png)
+
+### Step 2: Document Processing and vector embeddings generation
+
+![Step 2](images/8.png)
+
+### Step 3: Document Successfully processed
+
+![Step 3](images/9.png)
+
+### Step 4: RAG Response Generation
+
+![Step 4](images/10.png)
+
+### Step 5: Follow-up Questions with Memory
+
+![Step 5](images/11.png)
+
 ---
 
 ## ⚙️ Installation
